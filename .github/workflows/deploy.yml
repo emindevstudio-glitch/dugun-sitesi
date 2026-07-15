@@ -1,0 +1,23 @@
+name: Netlify'a Yayınla
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kodu al
+        uses: actions/checkout@v4
+
+      - name: Yayın klasörünü hazırla (yalnızca index.html)
+        run: |
+          mkdir _deploy
+          cp index.html _deploy/
+
+      - name: Netlify'a gönder
+        run: npx netlify-cli@17 deploy --prod --dir=_deploy
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
