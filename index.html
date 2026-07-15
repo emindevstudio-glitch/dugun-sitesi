@@ -7,286 +7,332 @@
 <meta name="description" content="Senanur ve Mehmet Emin'in düğün davetiyesi — 22 Ağustos 2026, Yalı Davet Kır Düğün Salonu, Gemlik / Bursa.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
-  /* ============ PALETTE & BASE ============ */
+  /* ============ PALETTE & BASE — Avrupa davetiye estetiği ============ */
   :root{
-    --ivory:#fbf8f3;
-    --warm-white:#fffdf9;
-    --champagne:#f2e6d3;
-    --beige:#e8dcc8;
-    --sage:#9caf88;
-    --sage-deep:#7c8f68;
-    --sage-ink:#3e4638;
-    --gold:#b89b6b;
-    --gold-soft:#c9ab77;
-    --ink:#2c2620;
-    --ink-soft:#6d675a;
-    --card:#fffdf9;
-    --shadow:0 10px 34px rgba(90,80,60,.10);
-    --shadow-sm:0 4px 16px rgba(90,80,60,.08);
-    --radius:22px;
-    --serif:'Cormorant Garamond', Georgia, serif;
-    --sans:'Jost', 'Segoe UI', sans-serif;
+    --paper:#f7f1e6;          /* dokulu fildişi kâğıt */
+    --paper-light:#fbf7ee;
+    --cream:#f3ecdd;
+    --beige:#e6dbc6;
+    --beige-line:#d9cbb0;
+    --burgundy:#6b1f2c;
+    --burgundy-deep:#521621;
+    --burgundy-soft:#8c3a46;
+    --olive:#7d8054;
+    --olive-soft:#9a9c76;
+    --ink:#3a2e2a;
+    --ink-soft:#6f6055;
+    --shadow:0 8px 30px rgba(82,54,40,.10);
+    --shadow-sm:0 3px 14px rgba(82,54,40,.08);
+    --radius:10px;
+    --script:'Great Vibes', cursive;
+    --serif-display:'Playfair Display', 'Times New Roman', serif;
+    --serif-body:'EB Garamond', Georgia, serif;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
-    font-family:var(--sans);
-    font-weight:300;
+    font-family:var(--serif-body);
+    font-weight:400;
     color:var(--ink);
-    background:var(--ivory);
-    line-height:1.6;
+    line-height:1.65;
+    background-color:var(--paper);
+    /* Kabartmalı kâğıt dokusu */
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.27 0 0 0 0 0.20 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     -webkit-font-smoothing:antialiased;
   }
   section{position:relative;overflow:hidden}
 
-  /* ============ REVEAL ANIMATIONS ============ */
-  .reveal{opacity:0;transform:translateY(28px);will-change:opacity,transform;transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+  /* ============ YUMUŞAK GÖRÜNME ANİMASYONLARI ============ */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity 1s ease,transform 1s ease}
   .reveal.visible{opacity:1;transform:none}
-  .reveal.d1{transition-delay:.15s}
-  .reveal.d2{transition-delay:.3s}
-  .reveal.d3{transition-delay:.45s}
+  .reveal.d1{transition-delay:.18s}
+  .reveal.d2{transition-delay:.36s}
+  .reveal.d3{transition-delay:.54s}
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto}
     .reveal{opacity:1;transform:none;transition:none}
-    .float-slow,.scroll-dot,.cover-rule{animation:none !important}
+    .scroll-dot{animation:none !important}
     *{transition-duration:.01ms !important}
   }
 
-  /* ============ COVER ============ */
+  /* ============ SÜS ÖĞELERİ ============ */
+  .ornament{display:block;margin:0 auto;color:var(--burgundy);opacity:.85}
+  .ornament.olive{color:var(--olive)}
+
+  /* ============ SAYFA 1 — KAPAK ============ */
   .cover{
     min-height:100vh;min-height:100svh;
     display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;padding:2rem 1.5rem;
-    background:
-      radial-gradient(ellipse 90% 60% at 50% -10%, rgba(240,230,210,.85), transparent 60%),
-      radial-gradient(ellipse 70% 50% at 50% 115%, rgba(200,209,188,.35), transparent 65%),
-      linear-gradient(175deg,var(--warm-white) 0%,var(--ivory) 55%,#f3efe3 100%);
+    text-align:center;padding:3.2rem 1.6rem;
   }
-  .cover .botanical{position:absolute;pointer-events:none;color:var(--sage);opacity:.5}
-  .bot-tl{top:-40px;left:-50px;width:min(340px,55vw);transform:rotate(8deg)}
-  .bot-br{bottom:-50px;right:-55px;width:min(360px,58vw);transform:rotate(190deg)}
-  .bot-tl.float-slow{animation:floatTL 16s ease-in-out infinite}
-  .bot-br.float-slow{animation:floatBR 20s ease-in-out infinite;animation-delay:-6s}
-  @keyframes floatTL{
-    0%,100%{transform:translateY(0) rotate(8deg)}
-    50%{transform:translateY(-16px) rotate(5deg)}
+  /* Klasik çift çizgili davetiye çerçevesi */
+  .cover-frame{
+    position:absolute;inset:clamp(14px,3vw,30px);
+    border:1px solid rgba(107,31,44,.45);
+    pointer-events:none;
   }
-  @keyframes floatBR{
-    0%,100%{transform:translateY(0) rotate(190deg)}
-    50%{transform:translateY(14px) rotate(196deg)}
+  .cover-frame::before{
+    content:"";position:absolute;inset:5px;
+    border:1px solid rgba(107,31,44,.22);
   }
+  .frame-fleuron{
+    position:absolute;left:50%;transform:translateX(-50%);
+    background:var(--paper);padding:0 .8rem;color:var(--burgundy);
+  }
+  .frame-fleuron.top{top:-9px}
+  .frame-fleuron.bottom{bottom:-9px}
+
+  .cover .botanical{position:absolute;pointer-events:none}
+  .bot-tl{top:clamp(20px,4vw,44px);left:clamp(20px,4vw,44px);width:min(200px,32vw)}
+  .bot-br{bottom:clamp(20px,4vw,44px);right:clamp(20px,4vw,44px);width:min(200px,32vw);transform:rotate(180deg)}
+
   .cover-eyebrow{
-    font-family:var(--sans);font-weight:400;
-    text-transform:uppercase;letter-spacing:.42em;
-    font-size:clamp(.72rem,2.4vw,.95rem);
-    color:var(--gold);
-    margin-bottom:clamp(2rem,7vh,4.2rem);
+    font-family:var(--serif-display);font-weight:500;
+    text-transform:uppercase;letter-spacing:.45em;
+    font-size:clamp(.7rem,2.3vw,.92rem);
+    color:var(--burgundy);
+    margin-bottom:clamp(1.8rem,6vh,3.6rem);
   }
-  .cover-rule{
-    width:56px;height:1px;margin:1.3rem auto;
-    background:linear-gradient(90deg,transparent,var(--gold-soft) 35%,#e6d3ab 50%,var(--gold-soft) 65%,transparent);
-    background-size:200% 100%;
-    animation:shimmer 6s linear infinite;
-  }
-  @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
   .cover-names{
-    font-family:var(--serif);font-weight:500;
-    font-size:clamp(2.6rem,9.5vw,6.2rem);
-    line-height:1.12;color:var(--ink);
-    letter-spacing:.02em;
+    font-family:var(--script);font-weight:400;
+    font-size:clamp(3.2rem,11vw,7rem);
+    line-height:1.15;color:var(--burgundy-deep);
   }
   .cover-names .amp{
-    display:block;font-style:italic;font-weight:400;
-    font-size:.42em;color:var(--gold);
-    margin:.28em 0;letter-spacing:0;
+    display:block;
+    font-family:var(--serif-display);font-style:italic;font-weight:400;
+    font-size:.3em;color:var(--olive);
+    margin:.1em 0;letter-spacing:.1em;
   }
+  .cover-divider{margin-top:clamp(1.6rem,5vh,2.8rem)}
+
   .scroll-indicator{
-    position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);
-    width:26px;height:44px;border:1.5px solid var(--gold-soft);
-    border-radius:14px;opacity:.75;
+    position:absolute;bottom:clamp(34px,6vh,54px);left:50%;transform:translateX(-50%);
+    width:24px;height:42px;border:1px solid var(--burgundy-soft);
+    border-radius:12px;opacity:.7;
   }
   .scroll-dot{
-    position:absolute;top:8px;left:50%;width:4px;height:8px;margin-left:-2px;
-    background:var(--gold);border-radius:3px;
-    animation:scrollDot 2.2s ease-in-out infinite;
+    position:absolute;top:8px;left:50%;width:3px;height:8px;margin-left:-1.5px;
+    background:var(--burgundy);border-radius:2px;
+    animation:scrollDot 2.4s ease-in-out infinite;
   }
   @keyframes scrollDot{
     0%{transform:translateY(0);opacity:1}
-    70%{transform:translateY(16px);opacity:0}
+    70%{transform:translateY(15px);opacity:0}
     100%{transform:translateY(0);opacity:0}
   }
 
-  /* ============ SHARED SECTION STYLES ============ */
-  .section-inner{max-width:1060px;margin:0 auto;padding:clamp(3.5rem,9vh,6rem) 1.4rem}
+  /* ============ ORTAK BÖLÜM STİLLERİ ============ */
+  .section-inner{max-width:1040px;margin:0 auto;padding:clamp(3.6rem,9vh,6rem) 1.5rem}
   .section-title{
-    font-family:var(--serif);font-weight:500;
-    font-size:clamp(2rem,5.5vw,3rem);
-    text-align:center;color:var(--ink);letter-spacing:.02em;
+    font-family:var(--serif-display);font-weight:500;
+    font-size:clamp(1.9rem,5.2vw,2.8rem);
+    text-align:center;color:var(--burgundy-deep);letter-spacing:.04em;
   }
-  .title-rule{width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1.1rem auto 0}
-  .title-leaf{display:block;margin:.9rem auto 0;color:var(--sage);opacity:.8}
+  .title-ornament{margin-top:1rem}
 
-  /* ============ DETAILS + RSVP ============ */
-  .details{background:
-    radial-gradient(ellipse 55% 40% at 12% 28%, rgba(242,230,211,.75), transparent 70%),
-    radial-gradient(ellipse 50% 38% at 90% 75%, rgba(156,175,136,.22), transparent 70%),
-    linear-gradient(180deg,#f3eee1 0%,var(--ivory) 18%,var(--ivory) 100%)}
+  /* ============ SAYFA 2 — BİLGİLER + RSVP ============ */
   .details-grid{
-    display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;
-    margin-top:clamp(2rem,5vh,3.2rem);align-items:stretch;
+    display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;
+    margin-top:clamp(2.2rem,5vh,3.4rem);align-items:stretch;
   }
-  @media (max-width:820px){.details-grid{grid-template-columns:1fr;gap:1.4rem}}
+  @media (max-width:820px){.details-grid{grid-template-columns:1fr;gap:1.5rem}}
+
+  /* Kartlar: krem kâğıt, ince çift kenarlık — el yapımı davetiye hissi */
   .card{
-    background:var(--card);
-    background:color-mix(in oklab,var(--warm-white) 72%,transparent);
-    -webkit-backdrop-filter:blur(16px) saturate(140%);
-    backdrop-filter:blur(16px) saturate(140%);
+    background:var(--paper-light);
+    border:1px solid var(--beige-line);
+    outline:1px solid rgba(107,31,44,.18);
+    outline-offset:4px;
     border-radius:var(--radius);
     box-shadow:var(--shadow);
-    border:1px solid rgba(184,155,107,.18);
-    border:1px solid color-mix(in oklab,var(--gold) 25%,transparent);
-    padding:clamp(1.6rem,4vw,2.4rem);
-    transition:transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s ease;
+    padding:clamp(1.7rem,4vw,2.5rem);
+    transition:box-shadow .5s ease,transform .5s ease;
   }
   @media (hover:hover){
-    .card:hover{transform:translateY(-4px);box-shadow:0 16px 42px rgba(90,80,60,.14)}
+    .card:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(82,54,40,.14)}
   }
   .card-heading{
-    font-family:var(--serif);font-weight:500;font-size:1.45rem;
-    color:var(--sage-deep);text-align:center;margin-bottom:1.4rem;letter-spacing:.03em;
+    font-family:var(--serif-display);font-weight:500;font-size:1.5rem;
+    color:var(--burgundy);text-align:center;margin-bottom:.4rem;letter-spacing:.04em;
   }
-  .info-row{display:flex;align-items:flex-start;gap:1rem;padding:.85rem 0;border-bottom:1px solid rgba(179,152,94,.14)}
+  .card-heading-ornament{margin-bottom:1.3rem}
+
+  .info-row{display:flex;align-items:flex-start;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--beige)}
   .info-row:last-of-type{border-bottom:none}
   .info-icon{
-    flex:none;width:42px;height:42px;border-radius:50%;
-    background:rgba(138,152,125,.12);color:var(--sage-deep);
+    flex:none;width:40px;height:40px;border-radius:50%;
+    border:1px solid var(--beige-line);color:var(--olive);
+    background:var(--cream);
     display:flex;align-items:center;justify-content:center;
   }
-  .info-label{font-size:.72rem;font-weight:500;text-transform:uppercase;letter-spacing:.22em;color:var(--gold)}
-  .info-value{font-family:var(--serif);font-size:1.28rem;font-weight:500;color:var(--ink);line-height:1.3}
-  .info-sub{font-size:.92rem;color:var(--ink-soft)}
+  .info-label{
+    font-family:var(--serif-display);font-size:.7rem;font-weight:500;
+    text-transform:uppercase;letter-spacing:.28em;color:var(--burgundy);
+  }
+  .info-value{font-family:var(--serif-display);font-size:1.3rem;font-weight:500;color:var(--ink);line-height:1.35}
+  .info-sub{font-size:1rem;color:var(--ink-soft);font-style:italic}
 
   .qr-block{
-    margin-top:1.5rem;text-align:center;
-    background:linear-gradient(160deg,rgba(240,230,210,.5),rgba(255,253,248,.9));
-    border:1px solid rgba(179,152,94,.2);border-radius:18px;
-    padding:1.4rem 1rem 1.5rem;
-    backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);
+    margin-top:1.6rem;text-align:center;
+    background:var(--cream);
+    border:1px solid var(--beige-line);
+    border-radius:8px;
+    padding:1.5rem 1rem 1.6rem;
   }
-  #qrcode{display:inline-block;padding:12px;background:#fff;border-radius:14px;box-shadow:var(--shadow-sm);line-height:0}
-  #qrcode img,#qrcode canvas{border-radius:6px}
-  .qr-caption{margin-top:.8rem;font-size:.95rem;color:var(--ink-soft);letter-spacing:.04em}
+  #qrcode{display:inline-block;padding:12px;background:#fff;border:1px solid var(--beige-line);border-radius:6px;box-shadow:var(--shadow-sm);line-height:0}
+  .qr-caption{margin-top:.85rem;font-size:1rem;color:var(--ink-soft);font-style:italic}
   .map-btn{
-    display:inline-block;margin-top:.9rem;
-    font-family:var(--sans);font-weight:400;font-size:.88rem;
-    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;
-    color:var(--sage-deep);border:1px solid var(--gold-soft);
-    border-radius:999px;padding:.6rem 1.6rem;
-    transition:background .35s ease,color .35s ease,border-color .35s ease;
+    display:inline-block;margin-top:.95rem;
+    font-family:var(--serif-display);font-weight:500;font-size:.8rem;
+    letter-spacing:.22em;text-transform:uppercase;text-decoration:none;
+    color:var(--burgundy);border:1px solid var(--burgundy-soft);
+    border-radius:2px;padding:.65rem 1.7rem;
+    transition:background .35s ease,color .35s ease;
   }
-  .map-btn:hover,.map-btn:focus-visible{background:var(--sage-deep);border-color:var(--sage-deep);color:var(--warm-white)}
+  .map-btn:hover,.map-btn:focus-visible{background:var(--burgundy);color:var(--paper-light)}
 
   /* ============ FORM ============ */
-  .rsvp-note{text-align:center;font-size:.98rem;color:var(--ink-soft);margin:-0.4rem 0 1.4rem}
-  .field{margin-bottom:1.15rem}
-  .field label{display:block;font-size:.78rem;font-weight:500;text-transform:uppercase;letter-spacing:.18em;color:var(--sage-deep);margin-bottom:.45rem}
+  .rsvp-note{text-align:center;font-size:1.02rem;font-style:italic;color:var(--ink-soft);margin-bottom:1.5rem}
+  .field{margin-bottom:1.2rem}
+  .field label{
+    display:block;font-family:var(--serif-display);
+    font-size:.72rem;font-weight:500;text-transform:uppercase;
+    letter-spacing:.24em;color:var(--burgundy);margin-bottom:.45rem;
+  }
   .field input{
-    width:100%;font-family:var(--sans);font-weight:300;font-size:1.02rem;color:var(--ink);
-    background:rgba(250,247,240,.75);
-    border:1px solid rgba(179,152,94,.3);border-radius:13px;
-    padding:.78rem 1rem;outline:none;
+    width:100%;font-family:var(--serif-body);font-size:1.08rem;color:var(--ink);
+    background:var(--paper-light);
+    border:1px solid var(--beige-line);border-radius:3px;
+    padding:.75rem 1rem;outline:none;
     transition:border-color .3s ease,box-shadow .3s ease;
   }
-  .field input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(179,152,94,.15)}
+  .field input:focus{border-color:var(--burgundy-soft);box-shadow:0 0 0 3px rgba(107,31,44,.08)}
   .attend-options{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
   .attend-options label{
     position:relative;display:flex;align-items:center;justify-content:center;
     text-align:center;cursor:pointer;
-    font-size:.95rem;font-weight:400;letter-spacing:.03em;color:var(--ink-soft);
-    background:rgba(250,247,240,.75);
-    border:1px solid rgba(179,152,94,.3);border-radius:13px;
+    font-family:var(--serif-body);font-size:1.02rem;color:var(--ink-soft);
+    background:var(--paper-light);
+    border:1px solid var(--beige-line);border-radius:3px;
     padding:.85rem .5rem;
     transition:all .3s ease;
-    text-transform:none;margin-bottom:0;
+    text-transform:none;margin-bottom:0;letter-spacing:.02em;
   }
   .attend-options input{position:absolute;opacity:0;pointer-events:none}
-  .attend-options input:checked + span{color:var(--warm-white)}
+  .attend-options input:checked + span{color:var(--paper-light)}
   .attend-options label:has(input:checked){
-    background:var(--sage-deep);border-color:var(--sage-deep);color:var(--warm-white);
+    background:var(--burgundy);border-color:var(--burgundy);
     box-shadow:var(--shadow-sm);
   }
-  .attend-options label:has(input:focus-visible){box-shadow:0 0 0 3px rgba(179,152,94,.3)}
+  .attend-options label:has(input:focus-visible){box-shadow:0 0 0 3px rgba(107,31,44,.2)}
   .submit-btn{
-    width:100%;margin-top:.4rem;cursor:pointer;
-    font-family:var(--sans);font-weight:500;font-size:.92rem;
-    letter-spacing:.2em;text-transform:uppercase;
-    color:var(--warm-white);background:linear-gradient(135deg,var(--sage-deep),var(--sage));
-    border:none;border-radius:999px;padding:.95rem 1rem;
+    width:100%;margin-top:.5rem;cursor:pointer;
+    font-family:var(--serif-display);font-weight:500;font-size:.85rem;
+    letter-spacing:.26em;text-transform:uppercase;
+    color:var(--paper-light);background:var(--burgundy);
+    border:1px solid var(--burgundy-deep);border-radius:2px;
+    padding:.95rem 1rem;
     box-shadow:var(--shadow-sm);
-    transition:transform .3s ease,box-shadow .3s ease,opacity .3s ease;
+    transition:background .35s ease,transform .3s ease,opacity .3s ease;
   }
-  .submit-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 10px 26px rgba(93,107,82,.3)}
+  .submit-btn:hover:not(:disabled){background:var(--burgundy-deep);transform:translateY(-1px)}
   .submit-btn:disabled{opacity:.6;cursor:wait}
-  .form-msg{display:none;margin-top:1rem;padding:.85rem 1.1rem;border-radius:13px;font-size:.95rem;text-align:center}
+  .form-msg{display:none;margin-top:1rem;padding:.85rem 1.1rem;border-radius:3px;font-size:1rem;text-align:center;font-style:italic}
   .form-msg.show{display:block;animation:msgIn .5s ease}
-  .form-msg.success{background:rgba(138,152,125,.15);color:var(--sage-deep);border:1px solid rgba(138,152,125,.35)}
-  .form-msg.error{background:rgba(178,110,90,.1);color:#94543c;border:1px solid rgba(178,110,90,.3)}
-  .field-error{display:none;font-size:.84rem;color:#94543c;margin-top:.35rem;letter-spacing:.02em}
+  .form-msg.success{background:rgba(125,128,84,.12);color:#5a5d3a;border:1px solid rgba(125,128,84,.35)}
+  .form-msg.error{background:rgba(107,31,44,.07);color:var(--burgundy);border:1px solid rgba(107,31,44,.25)}
+  .field-error{display:none;font-size:.92rem;color:var(--burgundy);margin-top:.35rem;font-style:italic}
   .field.invalid .field-error{display:block}
-  .field.invalid input{border-color:#c08a72}
+  .field.invalid input{border-color:var(--burgundy-soft)}
   @keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
-  /* ============ NOTLAR ============ */
-  .notes{background:
-    radial-gradient(ellipse 55% 40% at 85% 20%, rgba(242,230,211,.7), transparent 70%),
-    radial-gradient(ellipse 45% 35% at 8% 85%, rgba(156,175,136,.18), transparent 70%),
-    linear-gradient(180deg,var(--ivory) 0%,#f0ead9 100%)}
+  /* ============ SAYFA 3 — NOTLAR ============ */
+  .notes .section-inner{padding-bottom:clamp(2.4rem,5vh,3.4rem)}
   .notes-grid{
-    display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;
-    margin-top:clamp(2rem,5vh,3.2rem);max-width:860px;margin-left:auto;margin-right:auto;
+    display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;
+    margin-top:clamp(2.2rem,5vh,3.4rem);max-width:840px;margin-left:auto;margin-right:auto;
   }
-  @media (max-width:700px){.notes-grid{grid-template-columns:1fr;gap:1.3rem}}
+  @media (max-width:700px){.notes-grid{grid-template-columns:1fr;gap:1.5rem}}
   .note-card{text-align:center}
   .note-icon{
-    width:52px;height:52px;border-radius:50%;margin:0 auto 1.1rem;
-    background:rgba(179,152,94,.12);color:var(--gold);
+    width:50px;height:50px;border-radius:50%;margin:0 auto 1.1rem;
+    border:1px solid var(--beige-line);background:var(--cream);color:var(--burgundy);
     display:flex;align-items:center;justify-content:center;
   }
-  .note-title{font-family:var(--serif);font-weight:500;font-size:1.5rem;color:var(--ink);margin-bottom:.6rem}
-  .note-text{font-size:.98rem;color:var(--ink-soft);line-height:1.75}
+  .note-title{font-family:var(--serif-display);font-weight:500;font-size:1.5rem;color:var(--burgundy-deep);margin-bottom:.6rem}
+  .note-text{font-size:1.05rem;color:var(--ink-soft);line-height:1.8}
 
-  footer{
-    text-align:center;padding:0 1.4rem clamp(3rem,7vh,4.5rem);
-  }
-  .footer-rule{width:90px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:clamp(2.5rem,6vh,4rem) auto 2rem}
-  .footer-names{font-family:var(--serif);font-style:italic;font-weight:500;font-size:1.6rem;color:var(--sage-deep);letter-spacing:.03em}
-  .footer-msg{margin-top:.6rem;font-size:.95rem;color:var(--ink-soft)}
+  footer{text-align:center;padding:0 1.5rem clamp(3rem,7vh,4.5rem)}
+  .footer-ornament{margin:clamp(2.6rem,6vh,4rem) auto 1.6rem}
+  .footer-names{font-family:var(--script);font-size:2.2rem;color:var(--burgundy-deep);line-height:1.3}
+  .footer-msg{margin-top:.5rem;font-size:1.02rem;font-style:italic;color:var(--ink-soft)}
 </style>
 </head>
 <body>
 
 <!-- ================= SAYFA 1 — KAPAK ================= -->
 <section class="cover" id="kapak" aria-label="Davetiye kapağı">
-  <svg class="botanical bot-tl float-slow" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" aria-hidden="true">
-    <path d="M20 180 C 60 130, 90 90, 150 30"/>
-    <path d="M65 128 C 55 110, 58 96, 72 84 C 76 100, 74 114, 65 128 Z"/>
-    <path d="M92 100 C 108 92, 122 94, 132 106 C 116 112, 102 110, 92 100 Z"/>
-    <path d="M110 78 C 102 62, 104 48, 116 38 C 122 52, 120 66, 110 78 Z"/>
-    <path d="M46 152 C 60 146, 74 148, 84 158 C 70 164, 56 162, 46 152 Z"/>
-    <circle cx="150" cy="30" r="3"/>
-    <circle cx="140" cy="46" r="2"/>
+  <div class="cover-frame" aria-hidden="true">
+    <svg class="frame-fleuron top" width="46" height="18" viewBox="0 0 46 18" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+      <path d="M2 9 H16 M30 9 H44"/>
+      <path d="M23 3 C 20 6, 20 12, 23 15 C 26 12, 26 6, 23 3 Z"/>
+      <circle cx="18.5" cy="9" r="1"/><circle cx="27.5" cy="9" r="1"/>
+    </svg>
+    <svg class="frame-fleuron bottom" width="46" height="18" viewBox="0 0 46 18" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+      <path d="M2 9 H16 M30 9 H44"/>
+      <path d="M23 3 C 20 6, 20 12, 23 15 C 26 12, 26 6, 23 3 Z"/>
+      <circle cx="18.5" cy="9" r="1"/><circle cx="27.5" cy="9" r="1"/>
+    </svg>
+  </div>
+
+  <!-- Beyaz çiçekli, zeytin yeşili yapraklı botanik köşe süsleri -->
+  <svg class="botanical bot-tl" viewBox="0 0 160 160" fill="none" aria-hidden="true">
+    <g stroke="#7d8054" stroke-width="1" stroke-linecap="round">
+      <path d="M12 12 C 40 40, 70 60, 118 96"/>
+      <path d="M44 40 C 40 28, 44 18, 54 12 C 58 24, 54 34, 44 40 Z" fill="#9a9c76" fill-opacity=".35"/>
+      <path d="M66 58 C 76 50, 88 50, 98 58 C 88 66, 76 66, 66 58 Z" fill="#9a9c76" fill-opacity=".35"/>
+      <path d="M88 74 C 84 62, 88 52, 98 46 C 102 58, 98 68, 88 74 Z" fill="#9a9c76" fill-opacity=".35"/>
+    </g>
+    <g stroke="#d9cbb0" stroke-width="1">
+      <g transform="translate(30,66)">
+        <circle r="4.5" cx="0" cy="-7" fill="#fdfaf3"/><circle r="4.5" cx="6.6" cy="-2.2" fill="#fdfaf3"/>
+        <circle r="4.5" cx="4.1" cy="5.7" fill="#fdfaf3"/><circle r="4.5" cx="-4.1" cy="5.7" fill="#fdfaf3"/>
+        <circle r="4.5" cx="-6.6" cy="-2.2" fill="#fdfaf3"/><circle r="2.6" fill="#e6dbc6"/>
+      </g>
+      <g transform="translate(112,110)">
+        <circle r="4" cx="0" cy="-6.2" fill="#fdfaf3"/><circle r="4" cx="5.9" cy="-1.9" fill="#fdfaf3"/>
+        <circle r="4" cx="3.6" cy="5" fill="#fdfaf3"/><circle r="4" cx="-3.6" cy="5" fill="#fdfaf3"/>
+        <circle r="4" cx="-5.9" cy="-1.9" fill="#fdfaf3"/><circle r="2.3" fill="#e6dbc6"/>
+      </g>
+      <circle cx="76" cy="86" r="2.6" fill="#fdfaf3"/>
+      <circle cx="58" cy="30" r="2.2" fill="#fdfaf3"/>
+    </g>
   </svg>
-  <svg class="botanical bot-br float-slow" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" aria-hidden="true">
-    <path d="M20 180 C 60 130, 90 90, 150 30"/>
-    <path d="M65 128 C 55 110, 58 96, 72 84 C 76 100, 74 114, 65 128 Z"/>
-    <path d="M92 100 C 108 92, 122 94, 132 106 C 116 112, 102 110, 92 100 Z"/>
-    <path d="M110 78 C 102 62, 104 48, 116 38 C 122 52, 120 66, 110 78 Z"/>
-    <path d="M46 152 C 60 146, 74 148, 84 158 C 70 164, 56 162, 46 152 Z"/>
-    <circle cx="150" cy="30" r="3"/>
-    <circle cx="140" cy="46" r="2"/>
+  <svg class="botanical bot-br" viewBox="0 0 160 160" fill="none" aria-hidden="true">
+    <g stroke="#7d8054" stroke-width="1" stroke-linecap="round">
+      <path d="M12 12 C 40 40, 70 60, 118 96"/>
+      <path d="M44 40 C 40 28, 44 18, 54 12 C 58 24, 54 34, 44 40 Z" fill="#9a9c76" fill-opacity=".35"/>
+      <path d="M66 58 C 76 50, 88 50, 98 58 C 88 66, 76 66, 66 58 Z" fill="#9a9c76" fill-opacity=".35"/>
+      <path d="M88 74 C 84 62, 88 52, 98 46 C 102 58, 98 68, 88 74 Z" fill="#9a9c76" fill-opacity=".35"/>
+    </g>
+    <g stroke="#d9cbb0" stroke-width="1">
+      <g transform="translate(30,66)">
+        <circle r="4.5" cx="0" cy="-7" fill="#fdfaf3"/><circle r="4.5" cx="6.6" cy="-2.2" fill="#fdfaf3"/>
+        <circle r="4.5" cx="4.1" cy="5.7" fill="#fdfaf3"/><circle r="4.5" cx="-4.1" cy="5.7" fill="#fdfaf3"/>
+        <circle r="4.5" cx="-6.6" cy="-2.2" fill="#fdfaf3"/><circle r="2.6" fill="#e6dbc6"/>
+      </g>
+      <g transform="translate(112,110)">
+        <circle r="4" cx="0" cy="-6.2" fill="#fdfaf3"/><circle r="4" cx="5.9" cy="-1.9" fill="#fdfaf3"/>
+        <circle r="4" cx="3.6" cy="5" fill="#fdfaf3"/><circle r="4" cx="-3.6" cy="5" fill="#fdfaf3"/>
+        <circle r="4" cx="-5.9" cy="-1.9" fill="#fdfaf3"/><circle r="2.3" fill="#e6dbc6"/>
+      </g>
+      <circle cx="76" cy="86" r="2.6" fill="#fdfaf3"/>
+      <circle cx="58" cy="30" r="2.2" fill="#fdfaf3"/>
+    </g>
   </svg>
 
   <p class="cover-eyebrow reveal" id="cover-eyebrow">Düğünümüze Davetlisiniz</p>
@@ -295,7 +341,11 @@
     <span class="amp">&amp;</span>
     <span id="groom-name">Mehmet Emin</span>
   </h1>
-  <div class="cover-rule reveal d2"></div>
+  <svg class="ornament cover-divider reveal d2" width="120" height="16" viewBox="0 0 120 16" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" aria-hidden="true">
+    <path d="M4 8 H48 M72 8 H116"/>
+    <path d="M60 2 C 56 5, 56 11, 60 14 C 64 11, 64 5, 60 2 Z"/>
+    <circle cx="52" cy="8" r="1.2"/><circle cx="68" cy="8" r="1.2"/>
+  </svg>
 
   <div class="scroll-indicator" aria-hidden="true"><span class="scroll-dot"></span></div>
 </section>
@@ -304,10 +354,10 @@
 <section class="details" id="bilgiler" aria-label="Düğün bilgileri ve katılım">
   <div class="section-inner">
     <h2 class="section-title reveal">Düğün Bilgileri</h2>
-    <div class="title-rule reveal"></div>
-    <svg class="title-leaf reveal" width="30" height="16" viewBox="0 0 30 16" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
-      <path d="M2 14 C 8 6, 22 6, 28 14" stroke-linecap="round"/>
-      <path d="M15 3 C 12 6, 12 9, 15 11 C 18 9, 18 6, 15 3 Z"/>
+    <svg class="ornament title-ornament reveal" width="150" height="18" viewBox="0 0 150 18" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" aria-hidden="true">
+      <path d="M4 9 H60 M90 9 H146"/>
+      <path d="M75 3 C 71 6, 71 12, 75 15 C 79 12, 79 6, 75 3 Z"/>
+      <circle cx="65" cy="9" r="1.2"/><circle cx="85" cy="9" r="1.2"/>
     </svg>
 
     <div class="details-grid">
@@ -315,7 +365,7 @@
       <div class="card reveal d1">
         <div class="info-row">
           <div class="info-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
           </div>
           <div>
             <div class="info-label">Tarih</div>
@@ -324,7 +374,7 @@
         </div>
         <div class="info-row">
           <div class="info-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
           </div>
           <div>
             <div class="info-label">Saat</div>
@@ -333,7 +383,7 @@
         </div>
         <div class="info-row">
           <div class="info-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
           </div>
           <div>
             <div class="info-label">Yer</div>
@@ -352,6 +402,10 @@
       <!-- RSVP kartı -->
       <div class="card reveal d2">
         <h3 class="card-heading" id="rsvp-heading">Katılım Durumu</h3>
+        <svg class="ornament olive card-heading-ornament" width="90" height="12" viewBox="0 0 90 12" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 6 H34 M56 6 H86"/>
+          <circle cx="45" cy="6" r="2.4"/>
+        </svg>
         <p class="rsvp-note" id="rsvp-deadline">Lütfen en geç 15 Ağustos'a kadar katılım durumunuzu bildirin.</p>
 
         <form id="rsvp-form" novalidate aria-labelledby="rsvp-heading">
@@ -392,12 +446,16 @@
 <section class="notes" id="notlar" aria-label="Notlar">
   <div class="section-inner">
     <h2 class="section-title reveal">Notlar</h2>
-    <div class="title-rule reveal"></div>
+    <svg class="ornament title-ornament reveal" width="150" height="18" viewBox="0 0 150 18" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" aria-hidden="true">
+      <path d="M4 9 H60 M90 9 H146"/>
+      <path d="M75 3 C 71 6, 71 12, 75 15 C 79 12, 79 6, 75 3 Z"/>
+      <circle cx="65" cy="9" r="1.2"/><circle cx="85" cy="9" r="1.2"/>
+    </svg>
 
     <div class="notes-grid">
       <div class="card note-card reveal d1">
         <div class="note-icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M16 11a4 4 0 1 0-8 0"/><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
         </div>
         <h3 class="note-title">Yalnızca Yetişkinler</h3>
         <p class="note-text" id="adults-note">Davetimiz yalnızca yetişkin misafirlerimiz içindir. Anlayışınız için teşekkür ederiz.</p>
@@ -405,7 +463,7 @@
 
       <div class="card note-card reveal d2">
         <div class="note-icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 1.5M9 2h6"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 1.5M9 2h6"/></svg>
         </div>
         <h3 class="note-title">Varış Saati</h3>
         <p class="note-text" id="arrival-note">Lütfen tören başlamadan 15-20 dakika önce alanda bulunmanızı rica ederiz.</p>
@@ -413,7 +471,11 @@
     </div>
 
     <footer>
-      <div class="footer-rule"></div>
+      <svg class="ornament footer-ornament" width="120" height="16" viewBox="0 0 120 16" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 8 H48 M72 8 H116"/>
+        <path d="M60 2 C 56 5, 56 11, 60 14 C 64 11, 64 5, 60 2 Z"/>
+        <circle cx="52" cy="8" r="1.2"/><circle cx="68" cy="8" r="1.2"/>
+      </svg>
       <p class="footer-names reveal"><span id="footer-bride">Senanur</span> &amp; <span id="footer-groom">Mehmet Emin</span></p>
       <p class="footer-msg reveal d1" id="footer-msg">Bu özel günümüzde bizimle olduğunuz için teşekkür ederiz.</p>
     </footer>
@@ -440,8 +502,7 @@ const CONFIG = {
   adultsNote:  "Davetimiz yalnızca yetişkin misafirlerimiz içindir. Anlayışınız için teşekkür ederiz.",
   arrivalNote: "Lütfen tören başlamadan 15-20 dakika önce alanda bulunmanızı rica ederiz.",
   footerMessage: "Bu özel günümüzde bizimle olduğunuz için teşekkür ederiz.",
-  // RSVP yanıtlarının kaydedileceği Google Apps Script web uygulaması adresi.
-  // Kurulum rehberindeki adımları tamamladıktan sonra buraya yapıştırın:
+  // RSVP yanıtlarının kaydedileceği Google Apps Script web uygulaması adresi:
   rsvpEndpoint: "https://script.google.com/macros/s/AKfycby4TRt2FSH_35XzdBMQO1lRqBCw-lYbaxMGIUKixPdBVBkYqBibsbQHNwU22GwZDPbV/exec"
 };
 
@@ -473,7 +534,7 @@ new QRCode(document.getElementById("qrcode"), {
   text: mapUrl,
   width: 168,
   height: 168,
-  colorDark: "#3e4638",
+  colorDark: "#521621",
   colorLight: "#ffffff",
   correctLevel: QRCode.CorrectLevel.M
 });
