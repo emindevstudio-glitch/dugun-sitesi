@@ -318,6 +318,39 @@
   .footer-ornament{margin:clamp(2.6rem,6vh,4rem) auto 1.6rem}
   .footer-names{font-family:var(--script);font-size:2.2rem;color:var(--burgundy-deep);line-height:1.3}
   .footer-msg{margin-top:.5rem;font-size:1.02rem;font-style:italic;color:var(--ink-soft)}
+
+  /* ============ MOBİL DENEYİM İYİLEŞTİRMELERİ ============ */
+  @media (max-width:700px){
+    .details .section-inner{padding:2.75rem 1.25rem 3rem}
+    .details-grid{margin-top:1.7rem;gap:1.25rem}
+    .details .card{padding:1.45rem 1.3rem}
+    .details .info-row{padding:.75rem 0}
+    .details .qr-block{margin-top:1.25rem;padding:1.2rem 1rem 1.3rem}
+    .details .card-heading-ornament{margin-bottom:1rem}
+    .details .rsvp-note{margin-bottom:1.2rem}
+    .details .field{margin-bottom:1rem}
+
+    .arrival-card{padding-top:1.4rem;padding-bottom:1.4rem}
+    .arrival-card .note-icon{margin-bottom:.9rem}
+    .arrival-card .note-title{margin-bottom:.45rem}
+  }
+
+  @media (max-width:700px) and (orientation:portrait){
+    .cover{
+      min-height:84vh;min-height:84svh;
+      padding:2.75rem 1.35rem 7.75rem;
+    }
+    .cover-eyebrow{
+      font-size:clamp(.82rem,3vw,1.08rem);
+      letter-spacing:.32em;white-space:nowrap;
+      margin-bottom:1.5rem;
+    }
+    .cover-names .amp{font-size:.4em;margin:.05em 0}
+    .cover-divider{margin-top:1.25rem}
+    .families{padding-left:clamp(1.4rem,7vw,2.5rem);padding-right:clamp(1.4rem,7vw,2.5rem)}
+    .family-parents{font-size:clamp(.96rem,2.9vw,1.15rem);white-space:nowrap}
+    .scroll-indicator{bottom:1.1rem}
+  }
 </style>
 </head>
 <body>
@@ -547,7 +580,7 @@
         <p class="note-text" id="adults-note">12 yaş altı minik misafirlerimizin bu geceyi evlerinde tatlı uykularında geçirmelerini rica ediyoruz. Anlayışınız için teşekkür ederiz.</p>
       </div>
 
-      <div class="card note-card reveal d2">
+      <div class="card note-card arrival-card reveal d2">
         <div class="note-icon" aria-hidden="true"><span class="note-emoji">🕊️</span></div>
         <h3 class="note-title" id="arrival-title">Varış</h3>
         <p class="note-text" id="arrival-note">Törenimizin zamanında başlayabilmesi için sizleri başlangıç saatinden 15–20 dakika önce alanda görmekten mutluluk duyarız.</p>
