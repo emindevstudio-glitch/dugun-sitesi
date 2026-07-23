@@ -89,10 +89,9 @@
     display:flex;flex-direction:column;align-items:center;justify-content:center;
     text-align:center;padding:3.2rem 1.6rem 9.5rem;
   }
-  /* Tüm davetiyeyi çevreleyen klasik çift çizgili çerçeve */
+  /* Tüm davetiyeyi çevreleyen ince iç çerçeve */
   .page-frame{
     position:absolute;inset:clamp(5px,1.5vw,20px);
-    border:1px solid rgba(107,31,44,.45);
     pointer-events:none;z-index:20;
   }
   .page-frame::before{
@@ -103,8 +102,8 @@
     position:absolute;left:50%;transform:translateX(-50%);
     background:var(--paper);padding:0 .8rem;color:var(--burgundy);
   }
-  .frame-fleuron.top{top:-9px}
-  .frame-fleuron.bottom{bottom:-9px}
+  .frame-fleuron.top{top:-5px}
+  .frame-fleuron.bottom{bottom:-5px}
 
   .cover .botanical{position:absolute;pointer-events:none}
   .bot-tl{top:clamp(20px,4vw,44px);left:clamp(20px,4vw,44px);width:min(200px,32vw)}
