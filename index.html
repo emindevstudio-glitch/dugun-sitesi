@@ -289,7 +289,7 @@
   /* ============ SAYFA 3 — NOTLAR ============ */
   .notes .section-inner{padding-top:clamp(2rem,4vw,3.2rem);padding-bottom:clamp(2.4rem,5vh,3.4rem)}
   .notes-grid{
-    display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.8rem;
     margin-top:0;max-width:840px;margin-left:auto;margin-right:auto;
   }
   @media (max-width:700px){.notes-grid{grid-template-columns:1fr;gap:1.5rem}}
@@ -328,9 +328,9 @@
     .details .field{margin-bottom:1rem}
     .notes .section-inner{padding-top:1.5rem}
 
-    .arrival-card{padding-top:1.4rem;padding-bottom:1.4rem}
-    .arrival-card .note-icon{margin-bottom:.9rem}
-    .arrival-card .note-title{margin-bottom:.45rem}
+    .ceremony-card{padding-top:1.4rem;padding-bottom:1.4rem}
+    .ceremony-card .note-icon{margin-bottom:.9rem}
+    .ceremony-card .note-title{margin-bottom:.45rem}
   }
 
   @media (max-width:700px) and (orientation:portrait){
@@ -542,16 +542,22 @@
 <section class="notes" id="notlar" aria-label="Notlar">
   <div class="section-inner">
     <div class="notes-grid">
-      <div class="card note-card reveal d1">
+      <div class="card note-card ceremony-card reveal d1">
+        <div class="note-icon" aria-hidden="true"><span class="note-emoji">🕊️</span></div>
+        <h3 class="note-title" id="ceremony-title">Nikah</h3>
+        <p class="note-text" id="ceremony-note">Törenimizin zamanında başlayabilmesi için sizleri başlangıç saatinden 15–20 dakika önce alanda görmekten mutlu oluruz.</p>
+      </div>
+
+      <div class="card note-card reveal d2">
+        <div class="note-icon" aria-hidden="true"><span class="note-emoji">🍽️</span></div>
+        <h3 class="note-title" id="dinner-title">Akşam Yemeği</h3>
+        <p class="note-text" id="dinner-note">Nikah töreninin ardından akşam yemeği ikramımız olacaktır.</p>
+      </div>
+
+      <div class="card note-card reveal d3">
         <div class="note-icon" aria-hidden="true"><span class="note-emoji">🌙</span></div>
         <h3 class="note-title" id="adults-title">Miniklere İyi Uykular</h3>
         <p class="note-text" id="adults-note">12 yaş altı minik misafirlerimizin bu geceyi evlerinde tatlı uykularında geçirmelerini rica ediyoruz. Anlayışınız için teşekkür ederiz.</p>
-      </div>
-
-      <div class="card note-card arrival-card reveal d2">
-        <div class="note-icon" aria-hidden="true"><span class="note-emoji">🕊️</span></div>
-        <h3 class="note-title" id="arrival-title">Varış</h3>
-        <p class="note-text" id="arrival-note">Törenimizin zamanında başlayabilmesi için sizleri başlangıç saatinden 15–20 dakika önce alanda görmekten mutluluk duyarız.</p>
       </div>
     </div>
 
@@ -591,10 +597,12 @@ const CONFIG = {
   // Boş bırakılırsa yukarıdaki adresten otomatik oluşturulur.
   mapUrl: "",
   rsvpDeadlineText: "Lütfen katılım durumunuzu en geç 15 Ağustos'a kadar bildirin.",
+  ceremonyTitle: "Nikah",
+  ceremonyNote: "Törenimizin zamanında başlayabilmesi için sizleri başlangıç saatinden 15–20 dakika önce alanda görmekten mutlu oluruz.",
+  dinnerTitle: "Akşam Yemeği",
+  dinnerNote: "Nikah töreninin ardından akşam yemeği ikramımız olacaktır.",
   adultsTitle: "Miniklere İyi Uykular",
   adultsNote:  "12 yaş altı minik misafirlerimizin bu geceyi evlerinde tatlı uykularında geçirmelerini rica ediyoruz. Anlayışınız için teşekkür ederiz.",
-  arrivalTitle: "Varış",
-  arrivalNote: "Törenimizin zamanında başlayabilmesi için sizleri başlangıç saatinden 15–20 dakika önce alanda görmekten mutluluk duyarız.",
   footerMessage: "Bu özel günümüzde bizimle olduğunuz için teşekkür ederiz.",
   // RSVP yanıtlarının kaydedileceği Google Apps Script web uygulaması adresi:
   rsvpEndpoint: "https://script.google.com/macros/s/AKfycby4TRt2FSH_35XzdBMQO1lRqBCw-lYbaxMGIUKixPdBVBkYqBibsbQHNwU22GwZDPbV/exec"
@@ -617,10 +625,12 @@ const CONFIG = {
   document.getElementById("venue-name").setAttribute("aria-label", CONFIG.venueNameLine1 + " " + CONFIG.venueNameLine2);
   set("venue-city", CONFIG.venueCity);
   set("rsvp-deadline", CONFIG.rsvpDeadlineText);
+  set("ceremony-title", CONFIG.ceremonyTitle);
+  set("ceremony-note", CONFIG.ceremonyNote);
+  set("dinner-title", CONFIG.dinnerTitle);
+  set("dinner-note", CONFIG.dinnerNote);
   set("adults-title", CONFIG.adultsTitle);
   set("adults-note", CONFIG.adultsNote);
-  set("arrival-title", CONFIG.arrivalTitle);
-  set("arrival-note", CONFIG.arrivalNote);
   set("footer-bride", CONFIG.brideName);
   set("footer-groom", CONFIG.groomName);
   set("footer-msg", CONFIG.footerMessage);
