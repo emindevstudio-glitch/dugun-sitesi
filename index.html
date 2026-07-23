@@ -286,8 +286,8 @@
   @keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
   /* ============ SAYFA 3 — NOTLAR ============ */
-  .notes .section-inner{padding-top:clamp(2rem,4vw,3.2rem);padding-bottom:clamp(2.4rem,5vh,3.4rem)}
-  .event-summary-card{max-width:840px;margin:0 auto;padding:clamp(1.5rem,3vw,2.2rem)}
+  .notes .section-inner{max-width:980px;padding-top:clamp(2rem,4vw,3.2rem);padding-bottom:clamp(2.4rem,5vh,3.4rem)}
+  .event-summary-card{width:100%;margin:0 auto;padding:clamp(1.5rem,3vw,2.2rem)}
   .event-summary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
   .event-summary-item{position:relative;text-align:center;padding:0 clamp(.75rem,2vw,1.5rem)}
   .event-summary-item:not(:last-child)::after{
@@ -334,7 +334,7 @@
     .rsvp-card .card-heading-ornament{margin:.8rem auto 1.5rem}
     .details .rsvp-note{margin-bottom:1.2rem}
     .details .field{margin-bottom:1rem}
-    .notes .section-inner{padding-top:1.5rem}
+    .notes .section-inner{padding:1.5rem 1rem clamp(2.4rem,5vh,3.4rem)}
 
     .event-summary-card{padding:1.25rem}
     .event-summary-grid{grid-template-columns:1fr}
