@@ -210,9 +210,8 @@
   #wedding-date{white-space:nowrap}
   .venue-value span{display:block;white-space:nowrap}
   .info-sub{margin-top:.15rem;font-size:clamp(1rem,2.3vw,1.3rem);color:var(--ink-soft);font-style:italic;line-height:1.35}
-  .map-divider{display:flex;align-items:center;gap:1rem;max-width:700px;margin:clamp(2.5rem,6vw,4.2rem) auto clamp(2rem,4.5vw,3rem)}
+  .map-divider{display:flex;align-items:center;max-width:700px;margin:clamp(2.5rem,6vw,4.2rem) auto clamp(2rem,4.5vw,3rem)}
   .map-divider::before,.map-divider::after{content:"";height:1px;flex:1;background:var(--beige-line)}
-  .map-divider span{width:7px;height:7px;border:2px solid var(--burgundy);border-radius:50%}
   .map-btn{
     display:flex;align-items:center;justify-content:center;gap:.8rem;
     width:min(66.667%,380px);margin:0 auto;
@@ -502,7 +501,7 @@
           </div>
         </div>
 
-        <div class="map-divider" aria-hidden="true"><span></span></div>
+        <div class="map-divider" aria-hidden="true"></div>
         <a class="map-btn" id="map-link" href="#" target="_blank" rel="noopener">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 6 5-3 8 3 5-3v15l-5 3-8-3-5 3V6Z"/><path d="M8 3v15M16 6v15"/></svg>
           <span>Haritada Aç</span>
