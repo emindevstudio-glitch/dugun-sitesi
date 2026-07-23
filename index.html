@@ -219,6 +219,7 @@
     text-transform:uppercase;letter-spacing:.28em;color:var(--burgundy);
   }
   .info-value{margin-top:.55rem;font-family:var(--serif-display);font-size:clamp(1.2rem,3vw,1.75rem);font-weight:500;color:var(--ink);line-height:1.35}
+  #wedding-date{white-space:nowrap}
   .venue-value span{display:block;white-space:nowrap}
   .info-sub{margin-top:.15rem;font-size:clamp(1rem,2.3vw,1.3rem);color:var(--ink-soft);font-style:italic;line-height:1.35}
   .map-divider{display:flex;align-items:center;gap:1rem;max-width:700px;margin:clamp(2.5rem,6vw,4.2rem) auto clamp(2rem,4.5vw,3rem)}
@@ -324,13 +325,12 @@
     .details .section-inner{padding:2rem 1rem 1.5rem}
     .details-stack{gap:1.5rem}
     .details-card{padding:2rem .85rem 2.2rem}
-    .info-row{padding:0 .45rem}
+    .info-row{padding:0 .2rem}
     .info-row:not(:last-child)::after{top:.75rem}
     .info-icon{width:46px;height:46px}
     .info-icon svg{width:21px;height:21px}
     .info-label{margin-top:.75rem;font-size:.67rem;letter-spacing:.2em}
-    .info-value{font-size:clamp(.98rem,4.3vw,1.2rem)}
-    .venue-value{font-size:clamp(.55rem,3.1vw,.9rem);letter-spacing:-.01em}
+    .info-value{font-size:clamp(.6rem,calc(4.75vw - .23rem),1.15rem);line-height:1.25;letter-spacing:-.05em}
     .info-sub{font-size:clamp(.9rem,3.7vw,1.05rem)}
     .map-divider{margin:2.3rem auto 1.8rem}
     .map-btn,.submit-btn{font-size:.76rem;letter-spacing:.18em;padding:.8rem}
@@ -495,8 +495,8 @@
             </div>
             <div class="info-label">Yer</div>
             <div class="info-value venue-value" id="venue-name" aria-label="Yalı Davet Kır Düğün Salonu">
-              <span id="venue-name-line-1">Yalı Davet</span>
-              <span id="venue-name-line-2">Kır Düğün Salonu</span>
+              <span id="venue-name-line-1">Yalı Davet Kır</span>
+              <span id="venue-name-line-2">Düğün Salonu</span>
             </div>
             <div class="info-sub" id="venue-city">Gemlik / Bursa</div>
           </div>
@@ -605,8 +605,8 @@ const CONFIG = {
   familyRightParents: "Ayşe & Yusuf",
   familyRightSurname: "ARSLAN",
   weddingTime: "19.00",
-  venueNameLine1: "Yalı Davet",
-  venueNameLine2: "Kır Düğün Salonu",
+  venueNameLine1: "Yalı Davet Kır",
+  venueNameLine2: "Düğün Salonu",
   venueCity:   "Gemlik / Bursa",
   // "Haritada Aç" düğmesinin açtığı adres:
   venueAddress: "Yalı Davet - Kır Düğün Salonu & Beach, Büyükkumla, 16600 Gemlik/Bursa",
