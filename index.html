@@ -728,7 +728,8 @@ form.addEventListener("submit", async function(ev){
         web: document.getElementById("hp-web").value
       })
     });
-    if (!res.ok) throw new Error("HTTP " + res.status);
+    const result = await res.json();
+    if (!res.ok || !result.ok) throw new Error(result.error || "HTTP " + res.status);
     form.reset();
     attendingCount = "";
     syncAttendanceFields();

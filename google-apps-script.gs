@@ -19,9 +19,15 @@ function doPost(e) {
     var name = String(data.adSoyad || "").trim().substring(0, 100);
     var count = parseInt(data.kisiSayisi, 10);
     var attend = String(data.katilim || "").trim();
+    var isDeclining = attend === "Katılamayacağım";
 
-    if (name.length < 3 || isNaN(count) || count < 1 || count > 20 ||
-        (attend !== "Katılacağım" && attend !== "Katılamayacağım")) {
+    if (isDeclining) {
+      count = 0;
+    }
+
+    if (name.length < 3 ||
+        (attend !== "Katılacağım" && !isDeclining) ||
+        (!isDeclining && (isNaN(count) || count < 1 || count > 20))) {
       return jsonResponse({ ok: false, error: "Geçersiz veri" });
     }
 
