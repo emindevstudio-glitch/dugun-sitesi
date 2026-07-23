@@ -88,6 +88,23 @@
     display:flex;flex-direction:column;align-items:center;justify-content:center;
     text-align:center;padding:3.2rem 1.6rem 9.5rem;
   }
+  /* Klasik çift çizgili davetiye çerçevesi */
+  .cover-frame{
+    position:absolute;inset:clamp(14px,3vw,30px);
+    border:1px solid rgba(107,31,44,.45);
+    pointer-events:none;
+  }
+  .cover-frame::before{
+    content:"";position:absolute;inset:5px;
+    border:1px solid rgba(107,31,44,.22);
+  }
+  .frame-fleuron{
+    position:absolute;left:50%;transform:translateX(-50%);
+    background:var(--paper);padding:0 .8rem;color:var(--burgundy);
+  }
+  .frame-fleuron.top{top:-9px}
+  .frame-fleuron.bottom{bottom:-9px}
+
   .cover .botanical{position:absolute;pointer-events:none}
   .bot-tl{top:clamp(20px,4vw,44px);left:clamp(20px,4vw,44px);width:min(200px,32vw)}
   .bot-tr{top:clamp(20px,4vw,44px);right:clamp(20px,4vw,44px);width:min(200px,32vw);transform:scaleX(-1)}
@@ -339,6 +356,23 @@
 
 <!-- ================= SAYFA 1 — KAPAK ================= -->
 <section class="cover" id="kapak" aria-label="Davetiye kapağı">
+  <div class="cover-frame" aria-hidden="true">
+    <svg class="frame-fleuron top" width="46" height="18" viewBox="0 0 46 18" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+      <path d="M3 9 C 8 5, 13 5, 17 9 C 13 12, 9 12, 6 10"/>
+      <path d="M43 9 C 38 5, 33 5, 29 9 C 33 12, 37 12, 40 10"/>
+      <path d="M23 3 C 20 6, 20 12, 23 15 C 26 12, 26 6, 23 3 Z" fill="currentColor" fill-opacity=".15"/>
+      <circle cx="19" cy="9" r="1.3" fill="#f5efe2" stroke="#b99e6b" stroke-width=".5"/>
+      <circle cx="27" cy="9" r="1.3" fill="#f5efe2" stroke="#b99e6b" stroke-width=".5"/>
+    </svg>
+    <svg class="frame-fleuron bottom" width="46" height="18" viewBox="0 0 46 18" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+      <path d="M3 9 C 8 5, 13 5, 17 9 C 13 12, 9 12, 6 10"/>
+      <path d="M43 9 C 38 5, 33 5, 29 9 C 33 12, 37 12, 40 10"/>
+      <path d="M23 3 C 20 6, 20 12, 23 15 C 26 12, 26 6, 23 3 Z" fill="currentColor" fill-opacity=".15"/>
+      <circle cx="19" cy="9" r="1.3" fill="#f5efe2" stroke="#b99e6b" stroke-width=".5"/>
+      <circle cx="27" cy="9" r="1.3" fill="#f5efe2" stroke="#b99e6b" stroke-width=".5"/>
+    </svg>
+  </div>
+
   <!-- Beyaz çiçekli, zeytin yeşili yapraklı botanik köşe süsleri -->
   <svg class="botanical bot-tl" viewBox="0 0 160 160" fill="none" aria-hidden="true">
     <g stroke="#7d8054" stroke-opacity=".75" stroke-width="1" stroke-linecap="round" fill="none">
