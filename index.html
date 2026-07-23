@@ -248,12 +248,12 @@
   .field input:focus{border-color:var(--burgundy-soft);box-shadow:0 0 0 3px rgba(107,31,44,.08)}
   .attend-options{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
   .attend-options label{
-    position:relative;display:flex;align-items:center;justify-content:center;
-    text-align:center;cursor:pointer;
+    position:relative;display:flex;align-items:center;justify-content:flex-start;
+    text-align:left;cursor:pointer;
     font-family:var(--serif-body);font-size:1.02rem;color:var(--ink-soft);
     background:var(--paper-light);
     border:1px solid var(--beige-line);border-radius:3px;
-    padding:.85rem .5rem;
+    padding:.85rem 1rem;
     transition:all .3s ease;
     text-transform:none;margin-bottom:0;letter-spacing:.02em;
   }
@@ -322,7 +322,7 @@
     .info-icon svg{width:21px;height:21px}
     .info-value{
       grid-column:2;margin-top:0;
-      font-size:clamp(.82rem,4.4vw,1.35rem);line-height:1.3;letter-spacing:0;
+      font-size:clamp(.78rem,4.05vw,1.25rem);line-height:1.3;letter-spacing:0;
     }
     .venue-value{white-space:nowrap}
     .venue-value span{display:inline;white-space:inherit}
@@ -662,6 +662,9 @@ if (reduceMotion || !("IntersectionObserver" in window)) {
 const form = document.getElementById("rsvp-form");
 const msgEl = document.getElementById("form-msg");
 const submitBtn = document.getElementById("submit-btn");
+const countField = document.getElementById("f-count");
+const countInput = document.getElementById("kisi-sayisi");
+let attendingCount = "";
 
 function showMsg(text, type){
   msgEl.textContent = text;
@@ -669,6 +672,20 @@ function showMsg(text, type){
 }
 function markInvalid(id, invalid){
   document.getElementById(id).classList.toggle("invalid", invalid);
+}
+function syncAttendanceFields(){
+  const selected = form.querySelector('input[name="katilim"]:checked');
+  const isDeclining = selected && selected.value === "Katılamayacağım";
+
+  if (isDeclining) {
+    if (countInput.value !== "0") attendingCount = countInput.value;
+    countInput.value = "0";
+    countField.hidden = true;
+    markInvalid("f-count", false);
+  } else {
+    countField.hidden = false;
+    if (countInput.value === "0") countInput.value = attendingCount;
+  }
 }
 
 form.addEventListener("submit", async function(ev){
@@ -681,8 +698,9 @@ form.addEventListener("submit", async function(ev){
   const attend = form.querySelector('input[name="katilim"]:checked');
 
   const nameInvalid = name.length < 3;
-  const countInvalid = !countRaw || isNaN(count) || count < 1 || count > 20;
   const attendInvalid = !attend;
+  const isDeclining = attend && attend.value === "Katılamayacağım";
+  const countInvalid = !isDeclining && (!countRaw || isNaN(count) || count < 1 || count > 20);
 
   markInvalid("f-name", nameInvalid);
   markInvalid("f-count", countInvalid);
@@ -712,6 +730,8 @@ form.addEventListener("submit", async function(ev){
     });
     if (!res.ok) throw new Error("HTTP " + res.status);
     form.reset();
+    attendingCount = "";
+    syncAttendanceFields();
     showMsg("Teşekkürler! Yanıtınız başarıyla iletildi.", "success");
   } catch (err) {
     showMsg("Yanıtınız gönderilemedi. Lütfen bağlantınızı kontrol edip tekrar deneyin.", "error");
@@ -728,7 +748,10 @@ form.addEventListener("submit", async function(ev){
   });
 });
 form.querySelectorAll('input[name="katilim"]').forEach(r => {
-  r.addEventListener("change", () => document.getElementById("f-attend").classList.remove("invalid"));
+  r.addEventListener("change", () => {
+    document.getElementById("f-attend").classList.remove("invalid");
+    syncAttendanceFields();
+  });
 });
 </script>
 </body>
