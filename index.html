@@ -732,7 +732,12 @@ form.addEventListener("submit", async function(ev){
     form.reset();
     attendingCount = "";
     syncAttendanceFields();
-    showMsg("Teşekkürler! Yanıtınız başarıyla iletildi.", "success");
+    showMsg(
+      isDeclining
+        ? "Yanıtınız için teşekkür ederiz. Sizi aramızda göremeyeceğimiz için üzgünüz."
+        : "Teşekkürler! Yanıtınız başarıyla iletildi.",
+      "success"
+    );
   } catch (err) {
     showMsg("Yanıtınız gönderilemedi. Lütfen bağlantınızı kontrol edip tekrar deneyin.", "error");
   } finally {
