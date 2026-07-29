@@ -25,9 +25,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<script>
+  try {
+    if (localStorage.getItem("wedding-theme") === "dark") {
+      document.documentElement.dataset.theme = "dark";
+    }
+  } catch (_) {}
+</script>
 <style>
   /* ============ PALETTE & BASE — Avrupa davetiye estetiği ============ */
   :root{
+    color-scheme:light;
     --paper:#f7f1e6;          /* dokulu fildişi kâğıt */
     --paper-light:#fbf7ee;
     --cream:#f3ecdd;
@@ -47,6 +55,23 @@
     --serif-display:'Playfair Display', 'Times New Roman', serif;
     --serif-body:'EB Garamond', Georgia, serif;
   }
+  html[data-theme="dark"]{
+    color-scheme:dark;
+    --paper:#151214;
+    --paper-light:#211a1d;
+    --cream:#282022;
+    --beige:#473a3d;
+    --beige-line:#5d4a4f;
+    --burgundy:#d39aa5;
+    --burgundy-deep:#efc4cb;
+    --burgundy-soft:#b96f7e;
+    --olive:#aeb58a;
+    --olive-soft:#8f9672;
+    --ink:#eee4dc;
+    --ink-soft:#c1b3aa;
+    --shadow:0 10px 34px rgba(0,0,0,.32);
+    --shadow-sm:0 4px 16px rgba(0,0,0,.24);
+  }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
@@ -62,8 +87,29 @@
     background-size:240px 240px, 480px 560px;
     background-repeat:repeat, repeat;
     -webkit-font-smoothing:antialiased;
+    transition:background-color .45s ease,color .45s ease;
   }
+  html[data-theme="dark"] body{background-blend-mode:multiply,soft-light}
   section{position:relative;overflow:hidden}
+
+  /* Küçük, sakin tema anahtarı */
+  .theme-toggle{
+    position:fixed;z-index:20;top:.45rem;right:.5rem;
+    width:28px;height:28px;display:grid;place-items:center;
+    padding:0;border:0;border-radius:50%;cursor:pointer;
+    color:var(--ink-soft);background:transparent;
+    font-family:Georgia,serif;font-size:1.05rem;line-height:1;
+    opacity:.24;
+    transition:opacity .25s ease,color .35s ease,background-color .35s ease;
+  }
+  .theme-toggle:hover{opacity:.62}
+  .theme-toggle:focus-visible{
+    opacity:.82;outline:1px solid var(--burgundy-soft);outline-offset:1px;
+    background:color-mix(in srgb,var(--paper-light) 72%,transparent);
+  }
+  .theme-icon-sun{display:none}
+  html[data-theme="dark"] .theme-icon-moon{display:none}
+  html[data-theme="dark"] .theme-icon-sun{display:block}
 
   /* ============ YUMUŞAK GÖRÜNME ANİMASYONLARI ============ */
   .reveal{opacity:0;transform:translateY(22px);transition:opacity 1s ease,transform 1s ease}
@@ -302,6 +348,44 @@
   .note-title{font-family:var(--serif-display);font-weight:500;font-size:1.5rem;color:var(--burgundy-deep)}
   .note-text{margin-top:.6rem;font-size:1.05rem;color:var(--ink-soft);line-height:1.8}
 
+  /* ============ İSTEĞE BAĞLI KOYU TEMA ============ */
+  html[data-theme="dark"] .cover-frame{border-color:rgba(211,154,165,.46)}
+  html[data-theme="dark"] .cover-frame::before{border-color:rgba(211,154,165,.23)}
+  html[data-theme="dark"] .card{
+    outline-color:rgba(211,154,165,.22);
+  }
+  html[data-theme="dark"] .details-card{background-color:rgba(33,26,29,.92)}
+  @media (hover:hover){
+    html[data-theme="dark"] .card:hover{box-shadow:0 14px 38px rgba(0,0,0,.4)}
+  }
+  html[data-theme="dark"] .field input:focus{
+    box-shadow:0 0 0 3px rgba(211,154,165,.12);
+  }
+  html[data-theme="dark"] .attend-options label:has(input:focus-visible){
+    box-shadow:0 0 0 3px rgba(211,154,165,.2);
+  }
+  html[data-theme="dark"] .map-btn:focus-visible,
+  html[data-theme="dark"] .submit-btn:focus-visible{
+    outline-color:rgba(211,154,165,.28);
+  }
+  html[data-theme="dark"] .form-msg.success{
+    background:rgba(174,181,138,.11);color:#d5dcb3;border-color:rgba(174,181,138,.34);
+  }
+  html[data-theme="dark"] .form-msg.error{
+    background:rgba(211,154,165,.09);color:var(--burgundy-deep);border-color:rgba(211,154,165,.28);
+  }
+
+  /* Mevcut çiçek ve süs çizimlerinin yalnızca renklerini koyu palete uyarla */
+  html[data-theme="dark"] svg [stroke="#7d8054"]{stroke:var(--olive)}
+  html[data-theme="dark"] svg [fill="#7d8054"]{fill:var(--olive)}
+  html[data-theme="dark"] svg [fill="#6b1f2c"]{fill:#8d4050}
+  html[data-theme="dark"] svg [fill="#8c3a46"]{fill:#aa5b6b}
+  html[data-theme="dark"] svg [fill="#521621"]{fill:#5f2531}
+  html[data-theme="dark"] svg [stroke="#f0dfd0"]{stroke:#d7abb1}
+  html[data-theme="dark"] svg [fill="#f5efe2"]{fill:var(--paper)}
+  html[data-theme="dark"] svg [stroke="#b99e6b"],
+  html[data-theme="dark"] svg [stroke="#cbb997"]{stroke:#b59b69}
+
   /* ============ MOBİL DENEYİM İYİLEŞTİRMELERİ ============ */
   @media (max-width:700px){
     .details .section-inner{padding:2rem 1rem 1.5rem}
@@ -367,6 +451,11 @@
 </style>
 </head>
 <body>
+
+<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Koyu temaya geç" aria-pressed="false">
+  <span class="theme-icon-moon" aria-hidden="true">☾</span>
+  <span class="theme-icon-sun" aria-hidden="true">☼</span>
+</button>
 
 <!-- ================= SAYFA 1 — KAPAK ================= -->
 <section class="cover" id="kapak" aria-label="Davetiye kapağı">
@@ -579,6 +668,33 @@
 </section>
 
 <script>
+/* ---------- İsteğe bağlı tema ---------- */
+const themeToggle = document.getElementById("theme-toggle");
+
+function syncThemeToggle(){
+  const isDark = document.documentElement.dataset.theme === "dark";
+  const label = isDark ? "Açık temaya geç" : "Koyu temaya geç";
+  themeToggle.setAttribute("aria-pressed", String(isDark));
+  themeToggle.setAttribute("aria-label", label);
+  themeToggle.title = label;
+}
+
+themeToggle.addEventListener("click", function(){
+  const enableDark = document.documentElement.dataset.theme !== "dark";
+  if (enableDark) {
+    document.documentElement.dataset.theme = "dark";
+  } else {
+    delete document.documentElement.dataset.theme;
+  }
+  try {
+    if (enableDark) localStorage.setItem("wedding-theme", "dark");
+    else localStorage.removeItem("wedding-theme");
+  } catch (_) {}
+  syncThemeToggle();
+});
+
+syncThemeToggle();
+
 /* =====================================================================
    DÜZENLENEBİLİR İÇERİK — tüm metinleri buradan güncelleyebilirsiniz.
    ===================================================================== */
